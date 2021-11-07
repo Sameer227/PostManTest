@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 const fs = require('fs');
 const contents = fs.readFileSync('./server.js', { encoding: 'base64' });
 console.log(contents);
-let token = "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";
+let token = "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";
 let user = "sameer227"
 //list all repo's
 
@@ -37,11 +37,13 @@ app.post('/repo/create', async (req, res) => {
     })
 })
 
+
 axios.put(`https://api.github.com/repos/${user}/PostManTest/contents/folder/server.js`, {
     owner: user,
-    repo: 'PostManTest',
+    repo: 'post',
     path: 'folder/server.js',
-    message: "test",
+    "sha": "ad1c60ed0abce585160c77d6410db6896db1693f",
+    message: "test1",
     committer: {
         name: "sameer Soni",
         email: "sameer.soni9227@gmail.com"
@@ -55,7 +57,32 @@ axios.put(`https://api.github.com/repos/${user}/PostManTest/contents/folder/serv
 }).then(resp => {
     console.log(resp);
     // res.send(resp.data)
+}).catch(error => {
+    console.log(error);
 })
+
+// axios.patch(`https://api.github.com/repos/${user}/PostManTest`, {
+//     owner: user,
+//     repo: 'PostManTest',
+//     path: 'folder/server.js',
+//     //message: "test1",
+//     name: "post",
+//     // committer: {
+//     //     name: "sameer Soni",
+//     //     email: "sameer.soni9227@gmail.com"
+//     // },
+//     "content": contents,
+//     "branch": "master"
+// }, {
+//     headers: {
+//         Authorization: `Bearer ${token}`
+//     }
+// }).then(resp => {
+//     console.log(resp);
+//     // res.send(resp.data)
+// }).catch((error) => {
+//     console.log(error);
+// })
 
 
 
