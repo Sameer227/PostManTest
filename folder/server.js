@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 const fs = require('fs');
 const contents = fs.readFileSync('./server.js', { encoding: 'base64' });
 console.log(contents);
-let token = "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";
+let token = "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";
 let user = "sameer227"
 //list all repo's
 
