@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 const fs = require('fs');
 const contents = fs.readFileSync('./server.js', { encoding: 'base64' });
 console.log(contents);
-let token = "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";
+let token = "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";
 let user = "sameer227"
 //list all repo's
 
@@ -60,6 +60,8 @@ app.post('/update/repo', async (req, res) => {
             headers: {
                 Authorization: `Bearer ${token}`
             }
+        }).then(resp => {
+            console.log(resp);
         })
     })
 
